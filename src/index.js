@@ -29,4 +29,15 @@ async function getWeather(city) {
         data.weather[0].description
     );
 }
-getWeather();
+
+const submitBtn = document.querySelector("button");
+const form = document.querySelector("form");
+submitBtn.addEventListener("click", e => {
+    const fd = new FormData(form);
+    const city = fd.get("city");
+    if (city) {
+        e.preventDefault();
+        console.log(city);
+        getWeather(city).then(result => console.log(result));
+    }
+});
