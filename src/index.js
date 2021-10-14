@@ -14,8 +14,8 @@ class Weather {
     }
 }
 
-async function getWeather() {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=${process.env.APP_ID}`, { mode: "cors" });
+async function getWeather(city) {
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.APP_ID}`, { mode: "cors" });
     const data = await promise.json();
     return new Weather(
         data.name,
@@ -26,7 +26,7 @@ async function getWeather() {
         data.main.pressure,
         data.wind.deg,
         data.wind.speed,
-        data.weather.description
+        data.weather[0].description
     );
 }
 getWeather();
