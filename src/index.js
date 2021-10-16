@@ -40,17 +40,17 @@ function display(weather) {
     <h2>Feels like:</h2>
     <p>${weather.feelsLike}</p>
     <h2>Temperature:</h2>
-    <p>${weather.temp}</h2>
+    <p>${weather.temp}</p>
     <h2>Humidity:</h2>
-    <p>${weather.humidity}</h2>
+    <p>${weather.humidity}</p>
     <h2>Pressure:</h2>
-    <p>${weather.pressure}</h2>
+    <p>${weather.pressure}</p>
     <h2>Wind degree:</h2>
-    <p>${weather.windDeg}</h2>
+    <p>${weather.windDeg}</p>
     <h2>Wind speed:</h2>
-    <p>${weather.windSpeed}</h2>
+    <p>${weather.windSpeed}</p>
     <h2>Weather description:</h2>
-    <p>${weather.weatherDesc}</h2>
+    <p>${weather.weatherDesc}</p>
     `;
 }
 
