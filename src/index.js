@@ -38,23 +38,40 @@ function display(weather) {
         result.removeChild(result.firstChild);
     }
     result.innerHTML = `
-    <h1 class="text-5xl">${weather.city}, ${weather.country}</h1>
-    <div class="flex">
-        <p class="text-4xl">${weather.temp}&deg;C</p>
-        <img src="http://openweathermap.org/img/wn/${weather.icon}@2x.png" alt="">
+    <div class="grid grid-cols-3 grid-rows-5 items-center">
+        <div class="col-span-3 flex justify-center gap-3">
+            <img src=https://www.countryflags.io/${weather.country}/shiny/64.png>
+            <h1 class="text-5xl self-center">${weather.city}, ${weather.country}</h1>
+        </div>
+        <p class="text-4xl col-span-3">${weather.temp} &deg;C</p>
+        <div class="col-span-3 flex justify-center">
+            <p class="self-center">${weather.weatherDesc}</p>
+            <img class="" src=http://openweathermap.org/img/wn/${weather.icon}@2x.png alt="">
+        </div>
+        <div>
+            <h2>Feels like</h2>
+            <p>${weather.feelsLike} &deg;C</p>
+        </div>
+        <!-- <h2>Temperature:</h2> -->
+        <div>
+            <h2>Humidity</h2>
+            <p>${weather.humidity}%</p>
+        </div>
+        <div>
+            <h2>Pressure</h2>
+            <p>${weather.pressure} hPa</p>
+        </div>
+        <div class="col-span-3 flex justify-center gap-56">
+            <div>
+                <h2>Wind degree</h2>
+                <p>${weather.windDeg}</p>
+            </div>
+            <div>
+                <h2>Wind speed</h2>
+                <p>${weather.windSpeed} m/s</p>
+            </div>
+        </div>
     </div>
-    <p>${weather.weatherDesc}</p>
-    <h2 class="inline-block">Feels like:</h2>
-    <p>${weather.feelsLike}&deg;C</p>
-    <!-- <h2>Temperature:</h2> -->
-    <h2>Humidity:</h2>
-    <p>${weather.humidity}%</p>
-    <h2>Pressure:</h2>
-    <p>${weather.pressure}</p>
-    <h2>Wind degree:</h2>
-    <p>${weather.windDeg}</p>
-    <h2>Wind speed:</h2>
-    <p>${weather.windSpeed}</p>
     <!-- <h2>Weather description:</h2> -->
     `;
 }
