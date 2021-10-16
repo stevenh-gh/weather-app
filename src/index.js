@@ -1,7 +1,7 @@
 import "./style.css";
 
 class Weather {
-    constructor(city, country, feelsLike, temp, humidity, pressure, windDeg, windSpeed, weatherDesc) {
+    constructor(city, country, feelsLike, temp, humidity, pressure, windDeg, windSpeed, weatherDesc, icon) {
         this.city = city;
         this.country = country;
         this.feelsLike = feelsLike;
@@ -11,6 +11,7 @@ class Weather {
         this.windDeg = windDeg;
         this.windSpeed = windSpeed;
         this.weatherDesc = weatherDesc;
+        this.icon = icon;
     }
 }
 
@@ -26,7 +27,8 @@ async function getWeather(city) {
         data.main.pressure,
         data.wind.deg,
         data.wind.speed,
-        data.weather[0].description
+        data.weather[0].description,
+        data.weather[0].icon
     );
 }
 
@@ -36,21 +38,24 @@ function display(weather) {
         result.removeChild(result.firstChild);
     }
     result.innerHTML = `
-    <h1>${weather.city}, ${weather.country}</h1>
-    <h2>Feels like:</h2>
-    <p>${weather.feelsLike}</p>
-    <h2>Temperature:</h2>
-    <p>${weather.temp}</p>
+    <h1 class="text-5xl">${weather.city}, ${weather.country}</h1>
+    <div class="flex">
+        <p class="text-4xl">${weather.temp}&deg;C</p>
+        <img src="http://openweathermap.org/img/wn/${weather.icon}@2x.png" alt="">
+    </div>
+    <p>${weather.weatherDesc}</p>
+    <h2 class="inline-block">Feels like:</h2>
+    <p>${weather.feelsLike}&deg;C</p>
+    <!-- <h2>Temperature:</h2> -->
     <h2>Humidity:</h2>
-    <p>${weather.humidity}</p>
+    <p>${weather.humidity}%</p>
     <h2>Pressure:</h2>
     <p>${weather.pressure}</p>
     <h2>Wind degree:</h2>
     <p>${weather.windDeg}</p>
     <h2>Wind speed:</h2>
     <p>${weather.windSpeed}</p>
-    <h2>Weather description:</h2>
-    <p>${weather.weatherDesc}</p>
+    <!-- <h2>Weather description:</h2> -->
     `;
 }
 
@@ -61,7 +66,6 @@ submitBtn.addEventListener("click", e => {
     const city = fd.get("city");
     if (city) {
         e.preventDefault();
-        console.log(city);
         getWeather(city).then(result => display(result)).catch(e => console.log(e));
     }
 });
