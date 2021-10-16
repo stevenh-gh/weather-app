@@ -15,7 +15,7 @@ class Weather {
 }
 
 async function getWeather(city) {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.APP_ID}`, { mode: "cors" });
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.APP_ID}&units=metric`, { mode: "cors" });
     const data = await promise.json();
     return new Weather(
         data.name,
