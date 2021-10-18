@@ -45,14 +45,14 @@ function display(weather) {
             <img src=https://www.countryflags.io/${weather.country}/shiny/64.png>
             <h1 class="text-5xl self-center">${weather.city}, ${weather.country}</h1>
         </div>
-        <p class="text-4xl col-span-3">${weather.temp} &deg;C</p>
+        <p class="text-4xl col-span-3">${weather.temp}<sup>${tempUnit}</sup></p>
         <div class="col-span-3 flex justify-center">
             <p class="self-center">${weather.weatherDesc}</p>
             <img class="" src=http://openweathermap.org/img/wn/${weather.icon}@2x.png alt="">
         </div>
         <div>
             <h2>Feels like</h2>
-            <p class="text-2xl">${weather.feelsLike} &deg;C</p>
+            <p class="text-2xl">${weather.feelsLike}<sup>${tempUnit}</sup></p>
         </div>
         <!-- <h2>Temperature:</h2> -->
         <div>
@@ -61,7 +61,7 @@ function display(weather) {
         </div>
         <div>
             <h2>Pressure</h2>
-            <p class="text-2xl">${weather.pressure} hPa</p>
+            <p class="text-2xl">${weather.pressure}<sup>hPa</sup></p>
         </div>
         <div class="col-span-3 flex justify-center gap-56">
             <div>
@@ -70,7 +70,7 @@ function display(weather) {
             </div>
             <div>
                 <h2>Wind speed</h2>
-                <p class="text-2xl">${weather.windSpeed} m/s</p>
+                <p class="text-2xl">${weather.windSpeed}<sup>${speedUnit}</sup></p>
             </div>
         </div>
     </div>
