@@ -78,14 +78,16 @@ function display(weather) {
     `;
 }
 
-const submitBtn = document.querySelector("button");
-const form = document.querySelector("form");
-submitBtn.addEventListener("click", e => {
+function processForm(e) {
     const fd = new FormData(form);
     const city = fd.get("city");
     if (city) {
         e.preventDefault();
         getWeather(city).then(result => display(result)).catch(e => console.log(e));
     }
+}
 
 const unit = document.querySelector("input[type='checkbox']");
+
+const submitBtn = document.querySelector("button");
+submitBtn.addEventListener("click", e => processForm(e));
