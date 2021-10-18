@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* https://www.w3schools.com/howto/howto_css_switch.asp */
+
+.switch {
+    @apply relative inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    @apply opacity-0 w-0 h-0;
+}
+
+.slider {
+    @apply absolute cursor-pointer inset-0 bg-green-300;
+    transition: .4s;
+}
+
+.slider::before {
+    @apply absolute left-1 bottom-1 bg-white;
+    content: "";
+    height: 26px;
+    width: 26px;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
