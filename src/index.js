@@ -50,25 +50,25 @@ function display(weather) {
         </div>
         <div>
             <h2>Feels like</h2>
-            <p>${weather.feelsLike} &deg;C</p>
+            <p class="text-2xl">${weather.feelsLike} &deg;C</p>
         </div>
         <!-- <h2>Temperature:</h2> -->
         <div>
             <h2>Humidity</h2>
-            <p>${weather.humidity}%</p>
+            <p class="text-2xl">${weather.humidity}%</p>
         </div>
         <div>
             <h2>Pressure</h2>
-            <p>${weather.pressure} hPa</p>
+            <p class="text-2xl">${weather.pressure} hPa</p>
         </div>
         <div class="col-span-3 flex justify-center gap-56">
             <div>
                 <h2>Wind degree</h2>
-                <p>${weather.windDeg}</p>
+                <p class="text-2xl">${weather.windDeg}</p>
             </div>
             <div>
                 <h2>Wind speed</h2>
-                <p>${weather.windSpeed} m/s</p>
+                <p class="text-2xl">${weather.windSpeed} m/s</p>
             </div>
         </div>
     </div>
