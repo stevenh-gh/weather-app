@@ -16,7 +16,7 @@ class Weather {
 }
 
 async function getWeather(city) {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.APP_ID}&units=metric`, { mode: "cors" });
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${process.env.APP_ID}&units=${unit.checked ? "imperial" : "metric"}`, { mode: "cors" });
     const data = await promise.json();
     return new Weather(
         data.name,
@@ -37,6 +37,8 @@ function display(weather) {
     while (result.firstChild) { // reset results div
         result.removeChild(result.firstChild);
     }
+    const tempUnit = unit.checked ? "&deg;F" : "&deg;C";
+    const speedUnit = unit.checked ? "miles/hr" : "m/s";
     result.innerHTML = `
     <div class="grid grid-cols-3 grid-rows-5 items-center">
         <div class="col-span-3 flex justify-center gap-3">
@@ -85,4 +87,5 @@ submitBtn.addEventListener("click", e => {
         e.preventDefault();
         getWeather(city).then(result => display(result)).catch(e => console.log(e));
     }
-});
+
+const unit = document.querySelector("input[type='checkbox']");
