@@ -82,12 +82,17 @@ function processForm(e) {
     const fd = new FormData(form);
     const city = fd.get("city");
     if (city) {
-        e.preventDefault();
+        if (e.target.localName == "button") {
+            e.preventDefault();
+        }
         getWeather(city).then(result => display(result)).catch(e => console.log(e));
     }
 }
 
+const form = document.querySelector("form");
+
 const unit = document.querySelector("input[type='checkbox']");
+unit.addEventListener("click", e => processForm(e));
 
 const submitBtn = document.querySelector("button");
 submitBtn.addEventListener("click", e => processForm(e));
