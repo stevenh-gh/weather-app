@@ -54,7 +54,6 @@ function display(weather) {
             <h2>Feels like</h2>
             <p class="text-2xl">${weather.feelsLike}<sup>${tempUnit}</sup></p>
         </div>
-        <!-- <h2>Temperature:</h2> -->
         <div>
             <h2>Humidity</h2>
             <p class="text-2xl">${weather.humidity}%</p>
@@ -74,7 +73,6 @@ function display(weather) {
             </div>
         </div>
     </div>
-    <!-- <h2>Weather description:</h2> -->
     `;
 }
 
